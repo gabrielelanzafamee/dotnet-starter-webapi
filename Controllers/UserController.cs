@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using OpenAIWrapper.Data;
 using OpenAIWrapper.Models;
+using OpenAIWrapper.Services;
 
 namespace OpenAIWrapper.Controllers;
 
@@ -9,37 +8,31 @@ namespace OpenAIWrapper.Controllers;
 [Route("/api/v1/users")]
 public class UserController : ControllerBase
 {
-    private readonly AppDbContext _context;
+    private readonly UserService _userService;
     private readonly ILogger<UserController> _logger;
 
-    public UserController(AppDbContext context, ILogger<UserController> logger)
+    public UserController(UserService userService, ILogger<UserController> logger)
     {
-        _context = context;
+        _userService = userService;
         _logger = logger;
     }
 
     [HttpGet("")]
-    public async Task<ActionResult<IEnumerable<User>>> GetUsers() {
-        return Ok(await _context.Users.ToListAsync());
+    public async Task<ActionResult<IEnumerable<User>>> List() {
+        return Ok(await _userService.GetUsersAsync());
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<User>> GetUser(int id)
+    public async Task<ActionResult<User>> Get(int id)
     {
-        var user = await _context.Users.FindAsync(id);
-
-        if (user == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(user);
+        var result = await _userService.GetUserByIdAsync(id);
+        if (result == null) return NotFound();
+        return Ok(result);
     }
 
     [HttpPost("")]
-    public async Task<ActionResult<User>> CreateUser(User user) {
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+    public async Task<ActionResult<User>> Create(User user) {
+        var result = await _userService.CreateUserAsync(user);
+        return Ok(result);
     }
 }

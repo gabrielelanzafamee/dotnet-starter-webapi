@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using OpenAIWrapper.Data;
+using OpenAIWrapper.Repositories;
+using OpenAIWrapper.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,9 @@ builder.Services.AddSwaggerGen();
 var dbConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)));
+
+builder.Services.AddScoped<UserService>();        // Registers UserService for DI
+builder.Services.AddScoped<UserRepository>();     // Registers UserRepository for DI
 
 var app = builder.Build();
 
