@@ -1,8 +1,8 @@
-using OpenAIWrapper.Models;
-using OpenAIWrapper.Repositories;
-using OpenAIWrapper.Utils;
+using App.Models;
+using App.Repositories;
+using App.Utils;
 
-namespace OpenAIWrapper.Services;
+namespace App.Services;
 
 public class UserService {
     private readonly UserRepository _userRepository;

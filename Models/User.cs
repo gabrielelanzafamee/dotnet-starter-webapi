@@ -1,4 +1,4 @@
-namespace OpenAIWrapper.Models;
+namespace App.Models;
 
 public class User
 {

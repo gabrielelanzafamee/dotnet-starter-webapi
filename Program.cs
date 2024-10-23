@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using OpenAIWrapper.Data;
-using OpenAIWrapper.Repositories;
-using OpenAIWrapper.Services;
+using App.Data;
+using App.Repositories;
+using App.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using App.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,14 +19,43 @@ var dbConnectionString = builder.Configuration.GetConnectionString("DefaultConne
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(dbConnectionString, ServerVersion.AutoDetect(dbConnectionString)));
 
-builder.Services.AddScoped<UserService>();        // Registers UserService for DI
-builder.Services.AddScoped<UserRepository>();     // Registers UserRepository for DI
+// repositories
+builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<AuthenticationRepository>();
+
+// services
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<AuthenticationService>();
+
+// authentication
+var jwtIssuer = builder.Configuration.GetSection("Jwt:Issuer").Get<string>();
+var jwtKey = builder.Configuration.GetSection("Jwt:Key").Get<string>();
+
+if (jwtKey == null) throw new Exception("JWT KEY Not setted up.");
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options => {
+    options.TokenValidationParameters = new TokenValidationParameters
+     {
+         ValidateIssuer = true,
+         ValidateAudience = true,
+         ValidateLifetime = true,
+         ValidateIssuerSigningKey = true,
+         ValidIssuer = jwtIssuer,
+         ValidAudience = jwtIssuer,
+         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+     };
+});
 
 var app = builder.Build();
+
+// middlewares
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -30,5 +63,4 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-app.UseDeveloperExceptionPage();
 app.Run();

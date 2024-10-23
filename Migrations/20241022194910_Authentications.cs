@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace OpenAIWrapper.Migrations
+namespace App.Migrations
 {
     /// <inheritdoc />
     public partial class Authentications : Migration

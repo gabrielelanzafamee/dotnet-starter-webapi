@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using OpenAIWrapper.Models;
-using OpenAIWrapper.Services;
+using App.Models;
+using App.Services;
+using Microsoft.AspNetCore.Authorization;
 
-namespace OpenAIWrapper.Controllers;
+namespace App.Controllers;
 
 [ApiController]
 [Route("/api/v1/users")]
@@ -17,11 +18,13 @@ public class UserController : ControllerBase
         _logger = logger;
     }
 
+    [Authorize]
     [HttpGet("")]
     public async Task<ActionResult<IEnumerable<User>>> List() {
         return Ok(await _userService.GetUsersAsync());
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> Get(int id)
     {
@@ -30,6 +33,7 @@ public class UserController : ControllerBase
         return Ok(result);
     }
 
+    [Authorize]
     [HttpPost("")]
     public async Task<ActionResult<User>> Create(User user) {
         var result = await _userService.CreateUserAsync(user);

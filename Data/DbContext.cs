@@ -1,6 +1,6 @@
-namespace OpenAIWrapper.Data;
+namespace App.Data;
 
-using OpenAIWrapper.Models;
+using App.Models;
 using Microsoft.EntityFrameworkCore;
 
 public class AppDbContext : DbContext

@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using OpenAIWrapper.Data;
-using OpenAIWrapper.Models;
+using App.Data;
+using App.Models;
 
-namespace OpenAIWrapper.Repositories;
+namespace App.Repositories;
 
 public class UserRepository {
     private readonly AppDbContext _context;
@@ -15,6 +15,11 @@ public class UserRepository {
     public async Task<User?> GetUserByIdAsync(int id)
     {
         return await _context.Users.FindAsync(id);
+    }
+
+    public async Task<User?> GetUserByUsernameAsync(string username)
+    {
+        return await _context.Users.SingleOrDefaultAsync(user => user.Username == username);
     }
 
     public async Task<List<User>> GetUsersAsync()

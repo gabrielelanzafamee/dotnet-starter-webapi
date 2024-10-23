@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OpenAIWrapper.Data;
+using App.Data;
 
 #nullable disable
 
-namespace OpenAIWrapper.Migrations
+namespace App.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20241022194910_Authentications")]
@@ -24,7 +24,7 @@ namespace OpenAIWrapper.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("OpenAIWrapper.Models.Authentication", b =>
+            modelBuilder.Entity("App.Models.Authentication", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -54,7 +54,7 @@ namespace OpenAIWrapper.Migrations
                     b.ToTable("Authentications");
                 });
 
-            modelBuilder.Entity("OpenAIWrapper.Models.User", b =>
+            modelBuilder.Entity("App.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,9 +83,9 @@ namespace OpenAIWrapper.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("OpenAIWrapper.Models.Authentication", b =>
+            modelBuilder.Entity("App.Models.Authentication", b =>
                 {
-                    b.HasOne("OpenAIWrapper.Models.User", "User")
+                    b.HasOne("App.Models.User", "User")
                         .WithMany("Authentications")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -94,7 +94,7 @@ namespace OpenAIWrapper.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OpenAIWrapper.Models.User", b =>
+            modelBuilder.Entity("App.Models.User", b =>
                 {
                     b.Navigation("Authentications");
                 });
