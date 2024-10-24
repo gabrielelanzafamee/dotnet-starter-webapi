@@ -37,5 +37,6 @@ public class OpenAIService
 
     public async Task LoadVectorDB()
     {
+        
     }
 }

@@ -8,7 +8,7 @@ using DocumentFormat.OpenXml.Packaging;
 namespace App.Utils;
 
 
-public class Files
+public class FilesUtils
 {
     public static string ReadFile(string filePath)
     {
@@ -17,11 +17,11 @@ public class Files
         switch (extension)
         {
             case ".pdf":
-                return Files.ReadPdfFile(filePath);
+                return FilesUtils.ReadPdfFile(filePath);
             case ".docx":
-                return Files.ReadDocxFile(filePath);
+                return FilesUtils.ReadDocxFile(filePath);
             case ".txt":
-                return Files.ReadTxtFile(filePath);
+                return FilesUtils.ReadTxtFile(filePath);
             default:
                 throw new NotSupportedException($"File extension {extension} is not supported.");
         }
@@ -55,5 +55,4 @@ public class Files
     {
         return File.ReadAllText(filePath);
     }
-
 }

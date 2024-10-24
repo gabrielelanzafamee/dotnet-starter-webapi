@@ -34,7 +34,7 @@ public class DataSource
 
     public static DataSource FromFile(string path)
     {
-        string file = Files.ReadFile(path);
+        string file = FilesUtils.ReadFile(path);
         return new DataSource(DataFrom.File, file);
     }
 }
