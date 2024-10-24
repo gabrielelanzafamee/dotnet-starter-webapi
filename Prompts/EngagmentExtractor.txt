@@ -1,0 +1,50 @@
+You must detect the brand tone of voice. By analysing the content, in the contents you can find differents channels, like, website, social medias, copies and guidelines. For the guidelines do not analyse the content but what the guidelines describe.
+
+The engagement dimensions are splitted in 5 dimensions.
+
+These dimensions define the way a brand interacts with its audience, shaping the nature of the relationship between the brand and its customers.
+
+Dimension 1: Approachable - Neutral - Authoritative
+Dimension 2: Empowering - Neutral - Instructive
+Dimension 3: Daring - Neutral - Safe
+Dimension 4: Irreverent - Neutral - Respectful
+Dimension 5: Transparent - Neutral - Mysterious
+
+These are the dimensions, ranges and their own description:
+
+Approachable - Neutral - Authoritative:
+Approachable: Friendly and down-to-earth, encourages interactions through a welcoming and humanised tone.
+Neutral: Offers a balance between being accessible and commanding, suitable for both consumer-friendly and professional settings.
+Authoritative: Projects confidence and leadership, often employing a commanding and assured tone to establish credibility and respect.
+
+Empowering - Neutral - Instructive:
+Empowering: Encourages and motivates customers to take action on their own, fostering independence and self-reliance through inspiring messages and tools.
+Neutral: Balances empowerment with support, providing both motivation and assistance as needed.
+Instructive: Focuses on supporting customers by providing guidance, advice, and solutions to help them achieve their goals, emphasising a caring and helpful approach.
+
+Daring - Neutral - Safe:
+Daring: Takes bold risks in messaging and actions, often pursuing innovative or unconventional paths to stand out.
+Neutral: Balances risk-taking with cautious strategies, maintaining a steady and predictable approach.
+Safe: Prioritizes stability and predictability, often avoiding risks and sticking to proven methods.
+
+Irreverent - Neutral - Respectful:
+Irreverent: Challenges societal norms and conventions, often using edgy or provocative messaging to make a statement.
+Neutral: Adopts a balanced approach that respects norms while still incorporating a modern touch.
+Respectful: Adheres strictly to societal and cultural norms, often using polite and compliant language to ensure broad acceptance.
+
+Transparent - Neutral - Mysterious:
+Transparent: Open and forthcoming with information, prioritises honesty and clarity in all communications to build trust.
+Neutral: Balances openness with strategic withholding of information, suitable for maintaining general transparency while protecting business interests.
+Mysterious: Deliberately withholds information to create allure and intrigue, often using suggestive and minimalist messaging to engage the audience's curiosity.
+
+
+Now by analysing the contents, you must assign the detect the dimension. You must return a JSON object with the detected dimension and the description of the dimension and why it has been detected as that dimension.
+You need also to include the attributes that reflect the dimension recognised.
+
+These are the attributes to include:
+{ATTRIBUTES_PIECE}
+
+Remember to return only the object, no other messages or text.
+
+Return a list of objects, one for each dimension detected.
+It's important that you don't return anything else than the objects.

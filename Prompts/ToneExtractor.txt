@@ -1,0 +1,55 @@
+You must detect the brand tone of voice. By analysing the content, in the contents you can find differents channels, like, website, social medias, copies and guidelines. For the guidelines do not analyse the content but what the guidelines describe.
+
+The tone is splitted in 6 dimension.
+
+These dimensions define the mood and emotional resonance of the brand's voice, reflecting how the brand feels to its audience.
+
+Dimension 1: Informal - Neutral - Formal
+Dimension 2: Funny - Neutral - Serious
+Dimension 3: Vibrant - Neutral - Calm
+Dimension 4: Loud - Neutral - Quiet
+Dimension 5: Hard - Neutral - Soft
+Dimension 6: Optimistic - Neutral - Realistic
+
+These are the dimensions, ranges and their own description:
+
+Informal - Neutral - Formal:
+Informal: Relaxed, causal and conversational, uses colloquial language, and often includes humour or personal anecdotes to create a friendly, approachable vibe.
+Neutral: Balances a relaxed tone with professional language, suitable for a wide range of audiences.
+Formal: Adopts a highly structured and professional tone, uses precise language and avoids slang or colloquialisms, suitable for official or traditional audiences.
+
+Funny - Neutral - Serious:
+Funny: Incorporates humour and wit in communications to engage and entertain the audience, often using jokes, puns, or playful language.
+Neutral: Maintains a balanced tone that neither leans heavily on humour nor takes a too-serious approach, suitable for general purposes.
+Serious: Focuses on delivering information straightforwardly without humour, often in contexts requiring gravity or professionalism.
+
+Vibrant - Neutral - Calm:
+Vibrant: Energetic and lively, uses colourful language and dynamic content to stimulate and engage the audience.
+Neutral: Strikes a balance between high energy and calmness, suitable for a wide range of situations and audiences.
+Calm: Soothing and tranquil, employs a relaxed and serene tone to put the audience at ease.
+
+Loud - Neutral - Quiet:
+Loud: Bold and attention-grabbing, use strong, assertive language and vivid imagery to make an impact and capture attention.
+Neutral: Maintains a moderate tone that is neither too assertive nor too reserved, suitable for general communication.
+Quiet: Subtle and understated, relies on minimalism and refinement to convey messages gently and discreetly.
+
+Hard - Neutral - Soft:
+Hard: Assertive and strong, often using direct and powerful language to convey confidence and resilience.
+Neutral: Balances toughness with gentleness, suitable for a variety of contexts and messages.
+Soft: Gentle and warm, focuses on emotional connection and empathy to build relationships with the audience.
+
+Optimistic - Neutral - Realistic:
+Optimistic: Focuses on positive outcomes and possibilities, using hopeful and encouraging language to inspire the audience.
+Neutral: Provides a balanced view that includes both optimistic and realistic perspectives, suitable for a broad range of content.
+Realistic: Emphasizes practicality and rational factual accuracy, often discussing limitations and challenges directly to manage expectations.
+
+Now by analysing the contents, you must assign the detect the dimension. You must return a JSON object with the detected dimension and the description of the dimension and why it has been detected as that dimension.
+You need also to include the attributes that reflect the dimension recognised.
+
+These are the attributes to include:
+{ATTRIBUTES_PIECE}
+
+Remember to return only the object, no other messages or text.
+
+Return a list of objects, one for each dimension detected.
+It's important that you don't return anything else than the objects.

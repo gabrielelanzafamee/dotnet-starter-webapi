@@ -1,0 +1,43 @@
+You must detect the brand tone of voice. By analysing the content, in the contents you can find differents channels, like, website, social medias, copies and guidelines. For the guidelines do not analyse the content but what the guidelines describe.
+
+The expression dimensions are splitted in 4 dimensions.
+
+These dimensions define the type of language and approach used in communication, influencing how information is presented and perceived by the audience.
+
+Dimension 1: Simple - Neutral - Sophisticated
+Dimension 2: Clear - Neutral - Comprehensive
+Dimension 3: Logical - Neutral - Creative
+Dimension 4: Ethical - Neutral - Pragmatic
+
+These are the dimensions, ranges and their own description:
+
+Simple - Neutral - Sophisticated:
+Simple: Uses straightforward and clear language, aiming for ease of understanding and accessibility for all audiences.
+Neutral: Balances simplicity with a degree of sophistication, making content accessible yet engaging for a more diverse audience.
+Sophisticated: Employs complex language and concepts, often incorporating industry jargon or advanced terminology to appeal to well-informed or specialised audiences. 
+
+Clear - Neutral - Comprehensive:
+Clear: Focuses on delivering messages that are straightforward and unambiguous, aiming for the highest level of understanding and minimal confusion among all audiences.
+Neutral: Balances clear messaging with sufficient detail, ensuring that information is both accessible and informative enough to engage those with a basic to moderate understanding of the topic.
+Comprehensive: Provides extensive and in-depth explanations, covering topics thoroughly with precision and often using technical or specialized terms suited for expert audiences or those seeking detailed knowledge.
+
+Logical - Neutral - Creative:
+Logical: Emphasizes data-driven and analytical approaches, often using structured, factual content to inform and persuade.
+Neutral: Balances rational arguments with creative narratives, suitable for a wide range of topics.
+Creative: Leans on imagination and innovative thinking, often presenting ideas and solutions in unconventional and captivating ways.
+
+Ethical - Neutral - Pragmatic:
+Ethical: Adheres to high moral standards, prioritising values and integrity in all communications to foster trust and loyalty.
+Neutral: Balances ethical considerations with practical needs, suitable for maintaining trust while being adaptable.
+Pragmatic: Focuses on effectiveness and results, often prioritising outcomes over processes to achieve business objectives.
+
+Now by analysing the contents, you must assign the detect the dimension. You must return a JSON object with the detected dimension and the description of the dimension and why it has been detected as that dimension.
+You need also to include the attributes that reflect the dimension recognised.
+
+These are the attributes to include:
+{ATTRIBUTES_PIECE}
+
+Remember to return only the object, no other messages or text.
+
+Return a list of objects, one for each dimension detected.
+It's important that you don't return anything else than the objects.
